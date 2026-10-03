@@ -1,0 +1,22 @@
+<UserControl x:Class="ActivityViewer.Tabs.ItemsTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:l="clr-namespace:ActivityViewer"
+             xmlns:controls="clr-namespace:ActivityViewer.Controls">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <WrapPanel Margin="0,0,0,8">
+            <TextBlock Text="{l:T items.item}" VerticalAlignment="Center" Margin="0,0,6,0" />
+            <ComboBox x:Name="PrefabBox" Width="260" IsEditable="True" />
+            <TextBlock Text="{l:T items.min}" VerticalAlignment="Center" Margin="14,0,6,0" />
+            <TextBox x:Name="MinBox" Width="70" Text="0" />
+            <Button Content="{l:T common.search}" Style="{StaticResource AccentButton}" Click="OnSearch" Margin="14,0,0,0" />
+        </WrapPanel>
+        <WrapPanel x:Name="EventsPanel" Grid.Row="1" Margin="0,0,0,8" />
+        <controls:ResultView x:Name="Results" Grid.Row="2" />
+    </Grid>
+</UserControl>

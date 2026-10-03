@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <PlatformTarget>x64</PlatformTarget>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>ActivityViewer.Core</RootNamespace>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\native\e_sqlite3.dll" LogicalName="e_sqlite3.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="ActivityViewer.Tests" />
+    <InternalsVisibleTo Include="Vikings_ActivityViewer" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="10.0.12" />
+    <PackageReference Include="FluentFTP" Version="55.0.0" />
+    <PackageReference Include="SSH.NET" Version="2026.0.0" />
+  </ItemGroup>
+</Project>

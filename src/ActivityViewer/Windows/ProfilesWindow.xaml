@@ -1,0 +1,82 @@
+<Window x:Class="ActivityViewer.Windows.ProfilesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:l="clr-namespace:ActivityViewer"
+        Title="{l:T profiles.title}" Width="800" Height="540" MinWidth="700" MinHeight="480" WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
+        Icon="/app.ico" Background="{StaticResource BgBrush}" Foreground="{StaticResource TextBrush}" FontFamily="Segoe UI" FontSize="13">
+    <Grid Margin="12">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="0,8,0,0">
+                <Button Content="{l:T profiles.new}" Click="OnNew" Width="100" />
+                <Button Content="{l:T profiles.delete}" Click="OnDelete" Width="100" Margin="8,0,0,0" />
+            </StackPanel>
+            <ListBox x:Name="ProfileList" DisplayMemberPath="Name" SelectionChanged="OnSelectionChanged" />
+        </DockPanel>
+        <Grid Grid.Column="1" Margin="16,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="{l:T profiles.name}" VerticalAlignment="Center" Margin="0,0,10,8" />
+            <TextBox x:Name="NameBox" Grid.Column="1" Margin="0,0,0,8" />
+
+            <TextBlock Grid.Row="1" Text="{l:T profiles.protocol}" VerticalAlignment="Center" Margin="0,0,10,8" />
+            <ComboBox x:Name="ProtocolBox" Grid.Row="1" Grid.Column="1" Width="140" HorizontalAlignment="Left" Margin="0,0,0,8" SelectionChanged="OnProtocolChanged" />
+
+            <TextBlock Grid.Row="2" Text="{l:T profiles.host}" VerticalAlignment="Center" Margin="0,0,10,8" />
+            <TextBox x:Name="HostBox" Grid.Row="2" Grid.Column="1" Margin="0,0,0,8" />
+
+            <TextBlock Grid.Row="3" Text="{l:T profiles.port}" VerticalAlignment="Center" Margin="0,0,10,8" />
+            <TextBox x:Name="PortBox" Grid.Row="3" Grid.Column="1" Width="90" HorizontalAlignment="Left" Margin="0,0,0,8" />
+
+            <TextBlock Grid.Row="4" Text="{l:T profiles.user}" VerticalAlignment="Center" Margin="0,0,10,8" />
+            <TextBox x:Name="UserBox" Grid.Row="4" Grid.Column="1" Margin="0,0,0,8" />
+
+            <TextBlock Grid.Row="5" Text="{l:T profiles.password}" VerticalAlignment="Center" Margin="0,0,10,8" />
+            <StackPanel Grid.Row="5" Grid.Column="1" Margin="0,0,0,8">
+                <PasswordBox x:Name="PasswordInput" />
+                <TextBlock x:Name="PasswordHint" Foreground="{StaticResource MutedBrush}" FontSize="12" Margin="0,2,0,0" />
+            </StackPanel>
+
+            <CheckBox x:Name="SaveCheck" Grid.Row="6" Grid.Column="1" Content="{l:T common.savePassword}" IsChecked="True" Margin="0,0,0,8" />
+
+            <TextBlock Grid.Row="7" Text="{l:T profiles.folder}" VerticalAlignment="Center" Margin="0,0,10,8" />
+            <StackPanel Grid.Row="7" Grid.Column="1" Margin="0,0,0,8">
+                <TextBox x:Name="FolderBox" />
+                <TextBlock Foreground="{StaticResource MutedBrush}" FontSize="12" Margin="0,2,0,0" TextWrapping="Wrap"
+                           Text="{l:T profiles.folderHint}" />
+            </StackPanel>
+
+            <TextBlock Grid.Row="8" Text="{l:T profiles.trust}" VerticalAlignment="Center" Margin="0,0,10,8" />
+            <DockPanel Grid.Row="8" Grid.Column="1" Margin="0,0,0,8">
+                <Button DockPanel.Dock="Right" Content="{l:T profiles.clearTrust}" Click="OnClearTrust" Margin="8,0,0,0" />
+                <TextBlock x:Name="TrustText" Foreground="{StaticResource MutedBrush}" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" />
+            </DockPanel>
+
+            <DockPanel Grid.Row="10" Grid.ColumnSpan="2">
+                <Button DockPanel.Dock="Right" Content="{l:T common.close}" IsCancel="True" Width="100" Margin="8,0,0,0" />
+                <Button DockPanel.Dock="Right" Content="{l:T common.save}" Style="{StaticResource AccentButton}" Click="OnSave" Width="100" Margin="8,0,0,0" />
+                <Button x:Name="TestButton" DockPanel.Dock="Right" Content="{l:T profiles.test}" Click="OnTest" />
+                <TextBlock x:Name="StatusText" Foreground="{StaticResource MutedBrush}" VerticalAlignment="Center" />
+            </DockPanel>
+        </Grid>
+    </Grid>
+</Window>

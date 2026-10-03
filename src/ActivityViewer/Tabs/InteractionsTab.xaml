@@ -1,0 +1,24 @@
+<UserControl x:Class="ActivityViewer.Tabs.InteractionsTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:l="clr-namespace:ActivityViewer"
+             xmlns:controls="clr-namespace:ActivityViewer.Controls">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <WrapPanel Margin="0,0,0,8">
+            <TextBlock Text="{l:T interactions.object}" VerticalAlignment="Center" Margin="0,0,6,0" />
+            <ComboBox x:Name="ObjectBox" Width="260" IsEditable="True" />
+            <TextBlock Text="{l:T interactions.result}" VerticalAlignment="Center" Margin="14,0,6,0" />
+            <ComboBox x:Name="ResultBox" Width="120" SelectedIndex="0">
+                <ComboBoxItem Content="{l:T interactions.any}" />
+                <ComboBoxItem Content="{l:T result.success}" />
+                <ComboBoxItem Content="{l:T result.failure}" />
+            </ComboBox>
+            <Button Content="{l:T common.search}" Style="{StaticResource AccentButton}" Click="OnSearch" Margin="14,0,0,0" />
+        </WrapPanel>
+        <controls:ResultView x:Name="Results" Grid.Row="1" />
+    </Grid>
+</UserControl>

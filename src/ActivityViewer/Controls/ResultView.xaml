@@ -1,0 +1,21 @@
+<UserControl x:Class="ActivityViewer.Controls.ResultView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:l="clr-namespace:ActivityViewer">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <DockPanel Margin="0,0,0,8">
+            <Button x:Name="ExportButton" DockPanel.Dock="Right" Style="{StaticResource IconButton}" Content="&#xE74E;" Click="OnExport"
+                    IsEnabled="False" Margin="6,0,0,0" ToolTip="{l:T result.export}" />
+            <Button x:Name="CopyIdButton" DockPanel.Dock="Right" Style="{StaticResource IconButton}" Content="&#xE8C8;" Click="OnCopyId"
+                    IsEnabled="False" ToolTip="{l:T result.copyId}" />
+            <TextBlock x:Name="Summary" VerticalAlignment="Center" Foreground="{StaticResource MutedBrush}" Text="{l:T result.none}" />
+        </DockPanel>
+        <DataGrid x:Name="ResultGrid" Grid.Row="1" AutoGenerateColumns="True" IsReadOnly="True" CanUserAddRows="False" SelectionMode="Single"
+                  EnableRowVirtualization="True" EnableColumnVirtualization="True" VirtualizingPanel.VirtualizationMode="Recycling"
+                  AutoGeneratingColumn="OnAutoGeneratingColumn" SelectionChanged="OnSelectionChanged" />
+    </Grid>
+</UserControl>

@@ -1,0 +1,43 @@
+<Window x:Class="ActivityViewer.Windows.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:l="clr-namespace:ActivityViewer"
+        Title="{l:T settings.title}" Width="560" SizeToContent="Height" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
+        Icon="/app.ico" Background="{StaticResource BgBrush}" Foreground="{StaticResource TextBrush}" FontFamily="Segoe UI" FontSize="13">
+    <StackPanel Margin="20">
+        <TextBlock Text="{l:T settings.language}" Style="{StaticResource SectionLabel}" />
+        <ComboBox x:Name="LanguageBox" Width="180" HorizontalAlignment="Left" DisplayMemberPath="Display" SelectionChanged="OnLanguageChanged" />
+
+        <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,18,0,16" />
+
+        <TextBlock Text="{l:T settings.cacheFolder}" Style="{StaticResource SectionLabel}" />
+        <DockPanel>
+            <Button DockPanel.Dock="Right" Content="{l:T settings.useDefault}" Click="OnUseDefault" Margin="6,0,0,0" />
+            <Button DockPanel.Dock="Right" Content="{l:T settings.change}" Click="OnChangeFolder" Margin="6,0,0,0" />
+            <TextBox x:Name="FolderBox" IsReadOnly="True" />
+        </DockPanel>
+
+        <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,18,0,16" />
+
+        <TextBlock Text="{l:T settings.copiesTitle}" Style="{StaticResource SectionLabel}" />
+        <TextBlock x:Name="StatsText" Foreground="{StaticResource MutedBrush}" Margin="0,0,0,10" />
+        <StackPanel Orientation="Horizontal">
+            <Button Click="OnClearCurrent">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="&#xE74D;" Style="{StaticResource IconGlyph}" />
+                    <TextBlock Text="{l:T settings.clearCurrent}" />
+                </StackPanel>
+            </Button>
+            <Button Click="OnClearAll" Margin="8,0,0,0" BorderBrush="#E5534B" Foreground="#F28B85">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="&#xE74D;" Style="{StaticResource IconGlyph}" />
+                    <TextBlock Text="{l:T settings.clearAll}" />
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <TextBlock Text="{l:T settings.localOnly}" Foreground="{StaticResource MutedBrush}" FontSize="12" TextWrapping="Wrap" Margin="0,8,0,0" />
+
+        <TextBlock x:Name="StatusText" Foreground="{StaticResource MutedBrush}" TextWrapping="Wrap" Margin="0,16,0,0" />
+        <Button Content="{l:T common.close}" IsCancel="True" HorizontalAlignment="Right" Width="100" Margin="0,12,0,0" />
+    </StackPanel>
+</Window>
