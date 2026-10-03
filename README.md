@@ -1,59 +1,59 @@
 # Vikings_ActivityViewer
 
-Programa para Windows que lê o banco SQLite gerado pelo mod **Vikings_ActivityLog** e permite investigar a atividade dos jogadores.
+Windows program that reads the SQLite database written by the **Vikings_ActivityLog** mod and lets admins investigate player activity.
 
-*English version: [README.en.md](README.en.md)*
+*Versão em português: [README.pt-BR.md](README.pt-BR.md)*
 
-## Instalação
+## Installation
 
-Execute `Setup_Vikings_ActivityViewer_<versão>.exe`. Não é preciso instalar o .NET nem ter permissão de administrador.
+Run `Setup_Vikings_ActivityViewer_<version>.exe`. No .NET install and no administrator rights are needed.
 
-## Idioma
+## Language
 
-O programa está em **Português** e **English**. Na primeira abertura ele usa o idioma escolhido no instalador (ou o idioma do Windows). Para trocar, abra **Configurações** (engrenagem no canto superior direito); o programa reinicia já traduzido.
+The program is available in **English** and **Português**. On first start it uses the language chosen in the installer (or the Windows language). To change it, open **Settings** (gear in the top-right corner); the program restarts in the new language.
 
-## Primeiro uso
+## First use
 
-1. Na barra lateral, clique no lápis ao lado de **Servidor** e crie um perfil:
-   - Protocolo: FTP, FTPS ou SFTP.
-   - Host, porta, usuário e senha da hospedagem.
-   - Pasta remota: a pasta do `-savedir` do servidor seguida de `/Vikings_ActivityLog` (ex.: `/SAVE/Vikings_ActivityLog`).
-   - Use **Testar conexão** para conferir; ele lista os mundos (`.db`) encontrados.
-2. Escolha o servidor, clique no botão de atualizar ao lado de **Mundo**, escolha o mundo e clique em **Baixar**.
-3. O programa baixa uma cópia consistente do banco (até 3 tentativas se o servidor estiver gravando), abre a cópia e preenche todas as abas.
+1. In the sidebar, click the pencil next to **Server** and create a profile:
+   - Protocol: FTP, FTPS or SFTP.
+   - Host, port, user and password from your hosting.
+   - Remote folder: the server's `-savedir` folder followed by `/Vikings_ActivityLog` (e.g. `/SAVE/Vikings_ActivityLog`).
+   - Use **Test connection** to check it; it lists the worlds (`.db`) it finds.
+2. Choose the server, click the refresh button next to **World**, choose the world and click **Download**.
+3. The program downloads a consistent copy of the database (up to 3 attempts while the server is writing), opens it and fills every tab.
 
-Para um servidor no mesmo PC, use o ícone de pasta ao lado de **Baixar** e escolha o `.db` direto na pasta do servidor.
+For a server on the same PC, use the folder icon next to **Download** and pick the `.db` straight from the server folder.
 
-A senha fica salva criptografada pelo Windows e só pode ser lida pelo seu usuário neste PC.
-Cada admin cria os próprios perfis no próprio PC.
+The password is saved encrypted by Windows and can only be read by your user on this PC.
+Each admin creates their own profiles on their own PC.
 
-## Filtros
+## Filters
 
-- **Jogador** e **período** (De / Até, formato `dd/MM/aaaa` ou `dd/MM/aaaa HH:mm`) valem para todas as abas.
-- "Até" com apenas a data inclui o dia inteiro. Campo vazio = sem limite.
-- **Analisar** recarrega jogadores e sugestões e refaz a busca de todas as abas.
+- **Player** and **period** (From / To, format `yyyy-MM-dd` or `yyyy-MM-dd HH:mm`) apply to every tab.
+- "To" with a date only includes the whole day. An empty field means no limit.
+- **Analyze** reloads players and suggestions and runs every tab's search again.
 
-## Abas
+## Tabs
 
-- **Dano**: dano causado (Damage) e sofrido (Damaged), com tipos de dano e vida restante.
-- **Itens**: itens pegos, largados, movidos, craftados, equipados e consumidos, com origem e destino.
-- **Ações/seg**: jogadores com mais ações por segundo do que o limite (macro/cheat).
-- **Velocidade**: deslocamentos impossíveis entre posições do próprio jogador (ignora teleporte, morte e respawn).
-- **Interações**: interações com objetos, uso de itens e textos escritos.
+- **Damage**: damage dealt (Damage) and taken (Damaged), with damage types and remaining health.
+- **Items**: items picked up, dropped, moved, crafted, equipped and consumed, with origin and destination.
+- **Actions/sec**: players with more actions per second than the limit (macro/cheat).
+- **Speed**: impossible movement between the player's own positions (ignores teleport, death and respawn).
+- **Interactions**: interactions with objects, item use and written texts.
 
-Em todas as abas: ordenar clicando no cabeçalho, **Copiar ID** (SteamID da linha) e **Exportar** (CSV para Excel ou TXT, sempre com o resultado completo). Em português o CSV usa `;` e vírgula decimal.
+In every tab: sort by clicking a header, **Copy ID** (SteamID of the row) and **Export** (CSV for Excel or TXT, always with the full result). In English the CSV uses `,` and a decimal point.
 
-## Arquivos do programa
+## Program files
 
-- Perfis: `%AppData%\Vikings_ActivityViewer\profiles.json`
-- Idioma: `%AppData%\Vikings_ActivityViewer\settings.json`
-- Cópias baixadas: `%LocalAppData%\Vikings_ActivityViewer\cache\`
-- Registro de erros: `%LocalAppData%\Vikings_ActivityViewer\logs\`
+- Profiles: `%AppData%\Vikings_ActivityViewer\profiles.json`
+- Language: `%AppData%\Vikings_ActivityViewer\settings.json`
+- Downloaded copies: `%LocalAppData%\Vikings_ActivityViewer\cache\`
+- Error log: `%LocalAppData%\Vikings_ActivityViewer\logs\`
 
-## Configurações
+## Settings
 
-Abra pela engrenagem no canto superior direito:
+Open it with the gear in the top-right corner:
 
-- **Idioma**: Português ou English (o programa reinicia).
-- **Pasta das cópias baixadas**: escolha onde salvar os bancos baixados. Ao trocar, as cópias existentes são movidas para a pasta nova.
-- **Limpar cópia atual / Limpar todas**: apaga as cópias baixadas neste PC. Os bancos nos servidores nunca são alterados.
+- **Language**: English or Português (the program restarts).
+- **Folder for downloaded copies**: choose where downloaded databases are saved. When you change it, existing copies are moved to the new folder.
+- **Clear current copy / Clear all**: deletes the copies downloaded to this PC. The databases on the servers are never changed.
