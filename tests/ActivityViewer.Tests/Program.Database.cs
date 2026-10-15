@@ -36,7 +36,7 @@ namespace ActivityViewer.Tests
         private static void Database_RefusesNewerSchema()
         {
             string path = BuildDb("newer");
-            using (var writer = new SqliteDatabase(path, readOnly: false)) writer.Execute("UPDATE schema_info SET version = 2;");
+            using (var writer = new SqliteDatabase(path, readOnly: false)) writer.Execute("UPDATE schema_info SET version = 3;");
             string message = "";
             try { using ActivityDatabase db = ActivityDatabase.Open(path); }
             catch (InvalidActivityDatabaseException error) { message = error.Message; }

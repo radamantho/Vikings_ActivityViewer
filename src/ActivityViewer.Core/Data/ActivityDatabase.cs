@@ -31,7 +31,7 @@ namespace ActivityViewer.Core.Data
 
     public sealed class ActivityDatabase : IDisposable
     {
-        public const int SupportedSchemaVersion = 1;
+        public const int SupportedSchemaVersion = 2;
 
         private readonly SqliteDatabase _db;
         private readonly object _gate = new object();

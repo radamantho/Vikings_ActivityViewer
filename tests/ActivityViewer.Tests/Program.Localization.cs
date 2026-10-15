@@ -39,7 +39,7 @@ namespace ActivityViewer.Tests
         private static void Localization_MessagesInEnglish()
         {
             string newer = BuildDb("english_newer");
-            using (var writer = new ActivityViewer.Core.Sqlite.SqliteDatabase(newer, readOnly: false)) writer.Execute("UPDATE schema_info SET version = 2;");
+            using (var writer = new ActivityViewer.Core.Sqlite.SqliteDatabase(newer, readOnly: false)) writer.Execute("UPDATE schema_info SET version = 3;");
 
             InEnglish(() =>
             {
